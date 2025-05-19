@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>To Do List</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0&" />
+    <script src="script.js" defer></script>
+</head>
+<body>
+    <header id="header">
+        <div class="leftside">
+            <button class="add-new">Add new</button>
+            <button class="table-view">Table View</button>
+            <button class="message-board-view">Message Board</button>
+            <button class="sort">Sort by</button>
+        </div>
+
+        <div class="rightside">
+            <div class="search">
+                <input type="text" name="search" id="search" placeholder= "search...">
+            </div>
+            <button id="notification-btn"></button>
+            <div id="profile-icon-header"></div>
+        </div>
+
+    </header>
+    <div id="content"></div>
+    <div id="nav">
+        <div class="nav-heading">
+            <div class="profile" id="profile-nav"></div>
+            <h3>My Workspace</h3>
+        </div>
+        <div class="nav-content">
+            <div>&#11088 Today's Task</div>
+        </div>
+        
+    </div>
+</body>
+</html>
