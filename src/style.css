@@ -158,6 +158,7 @@ body {
 .project-title {
     background-color: #0096f9;
     border-radius: 12px;
+    padding: 0.5rem;
     text-align: center;
 }
 
@@ -168,10 +169,13 @@ body {
     padding-right: 6px;
     padding-bottom: 6px;
     border-radius: 12px;
-    gap: 0.8em;
-    
+    gap:4px;
     display: flex;
     flex-direction: column;
+}
+
+.activity-container:hover {
+    background-color: rgb(216, 86, 86);
 }
 
 .edit-container  > button {
