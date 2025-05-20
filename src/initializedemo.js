@@ -10,6 +10,7 @@ export default function initializeDemo() {
 function OdinProject() {
     create.ProjectContainer('Odin Project')
     create.ProjectContent(odinProjectList)
+    create.Activity()
 }
 
 const gymProjectList = ['Complete chest day', 'Walk 10,000 steps', 'Reach new squat PR of 140kg']
@@ -17,4 +18,5 @@ const gymProjectList = ['Complete chest day', 'Walk 10,000 steps', 'Reach new sq
 function gymProject() {
     create.ProjectContainer('Gym Project')
     create.ProjectContent(gymProjectList)
+    create.Activity()
 }

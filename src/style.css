@@ -146,13 +146,18 @@ body {
 }
 
 .project-container {
-    
     display: flex;
     flex-direction: column;
     gap: 1em;
     padding: 10px;
     color: white;
     height: auto;
+}
+
+.add-content-btn {
+    font-size: 24px;
+    padding: 0.3rem 0.2rem;
+    justify-items: end;
 }
 
 .project-title {
@@ -192,6 +197,32 @@ body {
 .edit-container {
     display: flex;
     justify-content: end;
+    align-items: center;
+    gap: 0.2rem;
+}
+
+.urgent-red {
+    border-radius: 10px;
+    border: solid 1px black;
+    background-color: red;
+    height: 12px;
+    width: 12px;
+}
+
+.urgent-green {
+    border-radius: 10px;
+    border: solid 1px black;
+    background-color: green;
+    height: 12px;
+    width: 12px;
+}
+
+.urgent-yellow {
+    border-radius: 10px;
+    border: solid 1px black;
+    background-color: yellow;
+    height: 12px;
+    width: 12px;
 }
 
 input:checked + label {
