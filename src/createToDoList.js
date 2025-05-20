@@ -1,3 +1,4 @@
+import { EditContainer, Activity } from "./editToDoList"
 const create = (function() {
     let newContainer = ''
     function ProjectContainer(title) {
@@ -37,52 +38,16 @@ const create = (function() {
             EditContainer(activityContainer)
         }
     }
-
-    function EditContainer(container) {
-            let editContainer = document.createElement('div')
-            editContainer.classList.add('edit-container')
-            container.append(editContainer)
-            // let editBtn = document.createElement('button')
-            // editBtn.setAttribute('class', 'edit-button')
-            // let editIcon = document.createElement('span')
-            // editIcon.classList.add('material-symbols-outlined')
-            // editIcon.textContent='edit'
-            // editBtn.appendChild(editIcon)
-            // editContainer.append(editBtn)
-
-            // let urgentRed = document.createElement('div')
-            // urgentRed.setAttribute('class', 'urgent-red')
-            // editContainer.appendChild(urgentRed)
-
-            // let urgentGreen = document.createElement('div')
-            // urgentGreen.setAttribute('class', 'urgent-green')
-            // editContainer.appendChild(urgentGreen)
-            
-            // let urgentYellow = document.createElement('div')
-            // urgentYellow.setAttribute('class', 'urgent-yellow')
-            // editContainer.appendChild(urgentYellow)
-
-            let removeBtn = document.createElement('button')
-            removeBtn.setAttribute('class', 'remove-button')
-            let removeIcon = document.createElement('span')
-            removeIcon.classList.add('material-symbols-outlined')
-            removeIcon.textContent='delete'
-            removeBtn.appendChild(removeIcon)
-    
-            editContainer.appendChild(removeBtn)
-    }
-
     function Activity() {
         let addContentBtn = document.createElement('button')
         addContentBtn.classList.add('add-content-btn')
         addContentBtn.textContent = '+'
         newContainer.appendChild(addContentBtn)
-    }
+        }
 
     return{ 
     ProjectContainer,
     ProjectContent,
-    EditContainer,
     Activity
     }
 })()
