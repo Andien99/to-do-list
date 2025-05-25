@@ -156,7 +156,6 @@ font-size: 24px;
     background-color: #585255;
     color: black;
     padding: 1.5em;
-
     display: grid;
     grid-auto-columns: 250px;
     grid-auto-flow: column;
@@ -166,16 +165,34 @@ font-size: 24px;
 .project-container {
     display: flex;
     flex-direction: column;
-    gap: 1em;
     padding: 10px;
+    gap: 20px;
     color: white;
     height: auto;
+    word-break: break-all;
+}
+
+.project-delete {
+    width: 30px;
+    padding: 3px;
+    border-radius: 30px;
+    transform: translate(280%, -80%);
+    background-color: #FF3B24;
+}
+
+.project-delete:hover {
+    background-color: #d43220;
 }
 
 .add-content-btn {
     font-size: 24px;
     padding: 0.3rem 0.2rem;
     justify-items: end;
+    background-color: #FF3B24;
+}
+
+.add-content-btn:hover {
+    background-color: #d43220;
 }
 
 .project-title {
@@ -247,7 +264,7 @@ textarea {
     flex-direction: column;
     padding: 16px;
     align-items: center;
-    gap: 16px;
+    gap: 13px;
 }
 
 .project-modal-container > h3 {
@@ -267,10 +284,9 @@ textarea {
     text-align: center;
 }
 
-
-
-.modal-button-conatainer {
+.modal-button-container {
     gap: 4rem;
+    padding-top: 1em;
     display: flex;
 }
 
@@ -297,4 +313,82 @@ textarea {
 
 #modal-cancel:hover {
     background-color: #d43220;
+}
+
+.task-modal-container {
+    height: 400px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 350px;
+    border-radius: 10px;
+    background-color: #2b2729;
+    border: solid 1px #524848;
+
+    display: flex;
+    flex-direction: column;
+    padding: 16px;
+    align-items: center;
+    gap: 13px;
+}
+
+.task-modal-container > h3 {
+    font-size: 30px;
+    color: white;
+}
+
+.task-modal-container > input {
+    width: 300px;
+    font-size: 18px;
+    border-radius: 12px;
+    text-align: center;
+}
+
+.task-modal-container > p {
+    color: white;
+    transform: translate(0,30%);
+    font-weight: bo;
+}
+
+.task-modal-container > input[type=textarea] {
+    width: 300px;
+    height: 200px;
+    font-size: 18px;
+    border-radius: 5px;
+    text-align: center;
+}
+
+.urgent-container {
+    display: flex;
+    gap: 0.4em;
+}
+
+.urgent-container > button {
+    border-radius: 4px;
+    padding: 0.5em 1em;
+}
+
+.started {
+    background-color: #d43220;
+}
+
+.started:hover {
+    background-color: #be2c1c;
+}
+
+.progress {
+    background-color: #ebba34;
+}
+
+.progress:hover {
+    background-color: #d8ab2f;
+}
+
+.completed {
+    background-color: #83c11f;
+}
+
+.completed:hover {
+    background-color: #75ac1c;
 }

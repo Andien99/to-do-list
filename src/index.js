@@ -1,9 +1,10 @@
 import './style.css'
 import imageLoadout from './images.js'
 import initializeDemo from './initializedemo.js'
-import { ProjectModal, newToDoListModal } from './createModal.js'
+import { ProjectModal, newTaskModal } from './createModal.js'
 const content = document.getElementById('content')
 
+newTaskModal()
 // default interactable buttons
 const addProjectBtn = document.getElementById('add-project')
 addProjectBtn.addEventListener('click', () => {
