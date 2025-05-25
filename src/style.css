@@ -18,27 +18,36 @@ button:hover {
     background-color: #0c84d4;
 }
 
-body {
+.page-container {
     display: grid;
-    background-color: #f4f8fa;
-    height: 99vh;
-    gap: 5px;
-    padding: 1px;
-    grid-template-columns: 230px 8fr;
-    grid-template-rows: 80px 1fr;
+    background-color: #EFEFEF;
+    height: 100vh;
+    grid-template-columns: 250px 8fr;
+    grid-template-rows: 90px 1fr;
     grid-template-areas: 
     'nav header'
     'nav content';
 }
 
+#add-project {
+    position: fixed;
+    background-color: #FF3B24;
+    top:89%;
+    left: 94%;
+    font: bold;
+    padding: 19px 28px;
+    font-size: 1.5rem;
+    border-radius: 5rem;
+}
+
+#add-project:hover {
+    background-color: #d43220;
+}
 /* stylings for the header contents */
 #header {
-    background-color: white;
+    background-color: #3d373a;
     grid-area: header;
-    border-radius: 6px;
     position: relative;
-    box-shadow: whitesmoke 2px;
-    border: 3px solid #eaf1f5;
     padding: 8px;
 
     display: flex;
@@ -96,19 +105,19 @@ body {
 /* stylings for the navigation pane */
 
 #nav {
-    background-color: #023047;
+    background-color: #201E1F;
     grid-area: nav;
-    border-radius: 6px;
-    position: relative;
-    box-shadow: whitesmoke 2px;
-    border: 3px solid whitesmoke;
     color: white;
-    padding: 16px;
+    padding: 8px;
+}
+
+h3 {
+font-size: 24px;
 }
 
 #profile-nav > img {
-    height: 40px;
-    width: 40px;
+    height: 50px;
+    width: 50px;
     object-fit: cover;
     border: solid black 1px;
     border-radius: 10em
@@ -117,25 +126,34 @@ body {
 .nav-heading {
     display: flex;
     gap: 8px;
+    padding: 16px;
     align-items: center;
-    border-bottom: solid 1px #eaf1f5;
-
 }
 
-.nav-content {
+.task-content {
     padding: 16px;
     display: grid;
     grid-auto-rows: auto;
+    gap: 1.2rem;
+    font-size: 18px;
+}
+
+.tasks {
+    display: flex;
+    gap: 25px;
+    padding: 0.2em 0.2em;
+    border-radius: 8px;
+}
+
+.tasks:hover {
+    background-color: #3a3638d0;
+    padding: 0.2em 0.2em;
 }
 
 /* stylings for the content */
 
 #content {
-    background-color: white;
-    border-radius: 6px;
-    grid-area: content;
-    box-shadow: whitesmoke 2px;
-    border: 2px solid #eaf1f5;
+    background-color: #585255;
     color: black;
     padding: 1.5em;
 
@@ -201,30 +219,6 @@ body {
     gap: 0.2rem;
 }
 
-.urgent-red {
-    border-radius: 10px;
-    border: solid 1px black;
-    background-color: red;
-    height: 12px;
-    width: 12px;
-}
-
-.urgent-green {
-    border-radius: 10px;
-    border: solid 1px black;
-    background-color: green;
-    height: 12px;
-    width: 12px;
-}
-
-.urgent-yellow {
-    border-radius: 10px;
-    border: solid 1px black;
-    background-color: yellow;
-    height: 12px;
-    width: 12px;
-}
-
 input:checked + label {
     text-decoration: line-through;
 }
@@ -235,4 +229,72 @@ textarea {
     field-sizing: content;
     border-radius: 6px;
     border-style:none ;
+}
+
+/* Modal Stylings */
+.project-modal-container {
+    height: 270px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 450px;
+    border-radius: 10px;
+    background-color: #2b2729;
+    border: solid 1px #524848;
+
+    display: flex;
+    flex-direction: column;
+    padding: 16px;
+    align-items: center;
+    gap: 16px;
+}
+
+.project-modal-container > h3 {
+    font-size: 38px;
+    color: white;
+}
+
+.project-modal-container > p {
+    color: white;
+    font-size: 18px;
+}
+
+.project-modal-container > input {
+    width: 300px;
+    font-size: 24px;
+    border-radius: 12px;
+    text-align: center;
+}
+
+
+
+.modal-button-conatainer {
+    gap: 4rem;
+    display: flex;
+}
+
+#submit {
+    padding: 0.8em 1.5em;
+    border-radius: 20px;
+    border-style: none;
+    background-color: greenyellow;
+    color: black;
+    font-weight: bold;
+}
+
+#submit:hover {
+    background-color: rgb(144, 212, 42);
+}
+#modal-cancel{
+    padding: 0.8em 1.5em;
+    border-radius: 20px;
+    border-style: none;
+    background-color: #FF3B24;
+    color: black;
+    font-weight: bold;
+}
+
+#modal-cancel:hover {
+    background-color: #d43220;
 }

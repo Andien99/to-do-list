@@ -6,12 +6,11 @@ const catProfile = document.createElement('img')
 catProfile.setAttribute('class', 'cat-profile')
 catProfile.src = catIcon;
 
-import notificationImg from './resources/notification icon.png'
-const notificationIcon = document.createElement('img')
-notificationIcon.setAttribute('class', 'notification')
-notificationIcon.src = notificationImg
+function createProfile(image) {
 
-notificationBtn.appendChild(notificationIcon)
+}
+
+
 profileIcon.appendChild(catProfile)
 
 import deleteImg from './resources/delete-icon.png'
@@ -19,9 +18,15 @@ const deleteIcon = document.createElement('img')
 deleteIcon.setAttribute('class', 'delete')
 deleteIcon.src = deleteImg
 
+let catProfileNav = document.createElement('img')
+catProfileNav.classList.add('cat-profile')
+catProfileNav.src = catIcon
+const profileNav = document.getElementById('profile-nav')
+profileNav.appendChild(catProfileNav)
 
 export {
     notificationBtn,
     profileIcon,
-    deleteIcon
+    deleteIcon,
+    catIcon
 }
