@@ -79,8 +79,9 @@ button:hover {
     box-sizing: border-box;
 }
 
-#notification-btn {
-    background-color: white;
+.rightside > span {
+    color: white;
+    align-self: center;
 }
 
 .cat-profile {
@@ -134,7 +135,6 @@ font-size: 24px;
     padding: 16px;
     display: grid;
     grid-auto-rows: auto;
-    gap: 1.2rem;
     font-size: 18px;
 }
 
@@ -172,6 +172,9 @@ font-size: 24px;
     word-break: break-all;
 }
 
+
+/* Stylings for the project  */
+
 .project-delete {
     width: 30px;
     padding: 3px;
@@ -202,50 +205,86 @@ font-size: 24px;
     text-align: center;
 }
 
-.activity-container {
-    background-color: rgb(230, 102, 102);
+/* Stylings for the task  */
+.task-container {
+    background-color: #FF3B24;
     padding-left: 8px;
     padding-top: 6px;
     padding-right: 6px;
-    padding-bottom: 6px;
+    padding-bottom: 8px;
     border-radius: 12px;
-    gap:4px;
     display: flex;
     flex-direction: column;
 }
-
-.activity-container:hover {
-    background-color: rgb(216, 86, 86);
-}
-
-.edit-container  > button {
-    padding: 0px;
-    background-color: transparent;
-}
-
-.edit-container  > button:hover {
-    padding: 0px;
-    background-color: transparent;
-    color: rgb(238, 236, 236);
-}
-
-.edit-container {
-    display: flex;
-    justify-content: end;
-    align-items: center;
-    gap: 0.2rem;
-}
-
-input:checked + label {
+        
+input:checked + p {
     text-decoration: line-through;
 }
 
-textarea {
-    overflow: hidden;
-    padding: 2px 2px;
-    field-sizing: content;
+.task-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 8px;
+}
+
+.task-header-left {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+}
+
+.task-header-right {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding-right: 12px;
+}
+
+.edit-due-date:hover {
+    background-color: #949494;
+}
+
+.task-header-left > button {
+    padding: 5px;
+    background-color: transparent;
+}
+
+.task-content {
+    padding: 0px;
+}
+
+.task-content > input {
+    color: white;
+    border-style: none;
     border-radius: 6px;
-    border-style:none ;
+    text-overflow: ellipsis;
+    font-size: 14px;
+    padding: 4px;
+}
+
+.task-content > input:focus {
+    background-color: white;
+    color: black;   
+}
+
+.task-content > textarea {
+    color: white;
+    border-style: none;
+    border-radius: 6px;
+    overflow: hidden;
+    font-size: 14px;
+    padding: 4px;
+}
+
+.task-content > textarea:focus {
+    height: 80px;
+    background-color: white;
+    color: black;
+    text-overflow: none;
+    white-space: pre-wrap;
+    word-wrap: break-word;
+    overflow-wrap: break-word;
 }
 
 /* Modal Stylings */
@@ -359,6 +398,28 @@ textarea {
     text-align: center;
 }
 
+#calendar-modal-btn {
+    background-color: transparent;
+    padding: 5px;
+    font: 24px
+}
+
+#calendar-input-container {
+    display: flex;
+
+}
+
+.calendar-input-container > input {
+    width: 120px;
+    font-size: 16px;
+    border-radius: 12px;
+    text-align: center;
+}
+
+#calendar-modal-btn:hover {
+    background-color: #585255;
+}
+
 .urgent-container {
     display: flex;
     gap: 0.4em;
@@ -369,26 +430,83 @@ textarea {
     padding: 0.5em 1em;
 }
 
-.started {
+.not-started {
     background-color: #d43220;
 }
 
-.started:hover {
+.not-started:hover {
     background-color: #be2c1c;
 }
 
-.progress {
+.in-progress {
     background-color: #ebba34;
 }
 
-.progress:hover {
+.in-progress:hover {
     background-color: #d8ab2f;
 }
 
 .completed {
-    background-color: #83c11f;
+    background-color: #7bb61d;
 }
 
 .completed:hover {
     background-color: #75ac1c;
+}
+
+/* Calendar Stylings  */
+.calendar-container {
+    height: 380px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -30%);
+    width: 300px;
+    border-radius: 10px;
+    background-color: #2b2729;
+    border: solid 1px #524848;
+
+    display: flex;
+    flex-direction: column;
+    padding: 16px;
+    align-items: center;
+    gap: 16px;
+}
+
+.calendar-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 300px;
+}
+
+.calendar-header > button {
+    background-color: transparent;
+}
+.calendar-header > button:hover {
+    background-color: #524848;
+}
+
+.calendar-header > p {
+    color: white;
+}
+
+.dates-container {
+    display:grid;
+    grid-template-columns: repeat(7,40px);
+    gap: 4px;
+}
+
+.dates-container > p {
+    color: white;
+    text-align: center;
+}
+
+.day {
+    text-align: center;
+    color: black;
+    background-color: white;
+    padding: 12px 1px;
+    border-radius: 7px;
+    
 }

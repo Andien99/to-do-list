@@ -1,26 +1,30 @@
-const content = document.getElementById('content')
 import { newTaskModal } from "./createModal"
-export function createProject (title_) {
-    let newContainer = document.createElement('div')
+const content = document.getElementById('content')
+let projectContainer
+
+function createProject (title_) {
+    projectContainer = document.createElement('div')
     let projectTitle = document.createElement('h1')
-    projectContainer(title_)
+    createProjectContainer(title_)
     addToDoListBtn()
 
-    function projectContainer(title) {
-        newContainer.classList.add('project-container')
-        content.appendChild(newContainer)
+    function createProjectContainer(title) {
+        projectContainer.classList.add('project-container')
+        content.appendChild(projectContainer)
     
         
         projectTitle.textContent = title
         projectTitle.classList.add('project-title')
-        newContainer.appendChild(projectTitle)
+        projectContainer.appendChild(projectTitle)
     }
 
     function addToDoListBtn () {
         let addContentBtn = document.createElement('button')
         addContentBtn.classList.add('add-content-btn')
         addContentBtn.textContent = '+'
-        newContainer.appendChild(addContentBtn)
+        projectContainer.appendChild(addContentBtn)
         addContentBtn.addEventListener('click', newTaskModal)
     }
 }
+
+export {createProject, projectContainer}

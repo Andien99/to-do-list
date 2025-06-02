@@ -1,7 +1,12 @@
 import { catIcon, catProfile } from "./images"
-import { createInput } from "./createLabel"
+import { createInput } from "./createInput"
 import { createProject } from "./createProject"
+import { createIcon } from "./createIcons"
+import { calendar } from "./calendar"
+import { createTask } from "./createTask"
 const content = document.getElementById(('content'))
+let calendarTextInput
+let calendarModalBtn
 function newTaskModal() {
     const taskContainer = document.createElement('div')
     taskContainer.classList.add('task-modal-container')
@@ -10,6 +15,34 @@ function newTaskModal() {
     const taskTitle = document.createElement('h3')
     taskTitle.textContent = 'Create Task'
     taskContainer.appendChild(taskTitle)
+
+    const calendarInputContainer = document.createElement('div')
+    calendarInputContainer.classList.add('calendar-input-container')
+        taskContainer.appendChild(calendarInputContainer)
+    
+    calendarTextInput = document.createElement('input')
+        createInput(calendarTextInput, 'text', 'calender-input', 'calender-input', 'dd/mm/yyyy')
+        calendarTextInput.setAttribute('autocomplete','off')
+        calendarInputContainer.appendChild(calendarTextInput)
+        calendarTextInput.addEventListener('click', () => {
+            if (calendarModalBtn.className == 'open') {
+                calendar.createFramework()
+            }
+            calendarModalBtn.classList.remove('open')
+        })
+
+    calendarModalBtn = document.createElement('button')
+        calendarModalBtn.classList.add('open')
+        calendarModalBtn.setAttribute('id','calendar-modal-btn')
+        createIcon(calendarModalBtn, 'edit_calendar')
+        calendarInputContainer.appendChild(calendarModalBtn)
+        calendarModalBtn.addEventListener('click', () => {
+            if (calendarModalBtn.className == 'open') {
+                calendar.createFramework()
+            }
+            calendarModalBtn.classList.remove('open')
+
+        })
 
     const taskNameInput = document.createElement('input')
     createInput(taskNameInput, 'text', 'task-name', 'task-name', 'Task name')
@@ -22,25 +55,28 @@ function newTaskModal() {
     const taskInfoInput = document.createElement('input')
     createInput(taskInfoInput, 'textarea', 'task-info', 'task-info', '')
     taskContainer.appendChild(taskInfoInput)
-
+    
+    let urgency = ''
     const taskUrgencyContainer = document.createElement('div')
     taskUrgencyContainer.classList.add('urgent-container')
     taskContainer.appendChild(taskUrgencyContainer)
 
     const notStartedBtn = document.createElement('button')
-    notStartedBtn.classList.add('started')
+    notStartedBtn.classList.add('not-started')
     taskUrgencyContainer.appendChild(notStartedBtn)
     notStartedBtn.textContent = 'Not Started'
     notStartedBtn.addEventListener('click', () => {
         taskContainer.style.border = 'solid 3px #d43220'
+        urgency = 'Not Started'
     })
 
     const progressBtn = document.createElement('button')
-    progressBtn.classList.add('progress')
+    progressBtn.classList.add('in-progress')
     taskUrgencyContainer.appendChild(progressBtn)
     progressBtn.textContent = 'In progress'
     progressBtn.addEventListener('click', () => {
         taskContainer.style.border = 'solid 3px #ebba34'
+        urgency = 'In Progress'
     })
 
     const completedBtn = document.createElement('button')
@@ -49,6 +85,7 @@ function newTaskModal() {
     completedBtn.textContent = 'Completed'
     completedBtn.addEventListener('click', () => {
         taskContainer.style.border = 'solid 3px #75ac1c'
+        urgency = 'Completed'
     })
 
     const taskBtnContainer = document.createElement('div')
@@ -61,9 +98,8 @@ function newTaskModal() {
 
         taskSubmit.addEventListener('click', () => {
             if (taskNameInput.value !== '') {
-                
-
-
+                createTask(taskNameInput.value, calendarTextInput.value, taskInfoInput.value, urgency)
+                content.removeChild(taskContainer)
             } else {
                 alert ('Task name cannot be empty')
             }
@@ -139,4 +175,4 @@ function ProjectModal() {
 
 }
 
-export {ProjectModal, newTaskModal}
+export {ProjectModal, newTaskModal, calendarTextInput, calendarModalBtn}
