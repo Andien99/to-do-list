@@ -207,7 +207,7 @@ font-size: 24px;
 
 /* Stylings for the task  */
 .task-container {
-    background-color: #FF3B24;
+    background-color: #c4c4c4;
     padding-left: 8px;
     padding-top: 6px;
     padding-right: 6px;
@@ -255,7 +255,7 @@ input:checked + p {
 }
 
 .task-content > input {
-    color: white;
+    background-color: transparent;
     border-style: none;
     border-radius: 6px;
     text-overflow: ellipsis;
@@ -269,7 +269,7 @@ input:checked + p {
 }
 
 .task-content > textarea {
-    color: white;
+    background-color: transparent;
     border-style: none;
     border-radius: 6px;
     overflow: hidden;

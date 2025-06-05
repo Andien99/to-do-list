@@ -1,9 +1,10 @@
-import { catIcon, catProfile } from "./images"
+import { catIcon } from "./images"
 import { createInput } from "./createInput"
 import { createProject } from "./createProject"
 import { createIcon } from "./createIcons"
 import { calendar } from "./calendar"
 import { createTask } from "./createTask"
+import { initalizedProjects } from "./storeData"
 const content = document.getElementById(('content'))
 let calendarTextInput
 let calendarModalBtn
@@ -97,7 +98,7 @@ function newTaskModal() {
         taskBtnContainer.appendChild(taskSubmit)
 
         taskSubmit.addEventListener('click', () => {
-            if (taskNameInput.value !== '') {
+            if (taskNameInput.value !== '' && initalizedProjects.includes(taskNameInput.value) == false) {
                 createTask(taskNameInput.value, calendarTextInput.value, taskInfoInput.value, urgency)
                 content.removeChild(taskContainer)
             } else {
@@ -113,7 +114,6 @@ function newTaskModal() {
             content.removeChild(taskContainer)
         })
 }
-
 function ProjectModal() {
     const ProjectModalContainer = document.createElement('div')
     ProjectModalContainer.classList.add('project-modal-container')
@@ -154,12 +154,12 @@ function ProjectModal() {
         ProjectModalbtncontainer.appendChild(ProjectModalSubmit)
 
         ProjectModalSubmit.addEventListener('click', () => {
-            if (ProjectModalNameInput.value !== '') {
+            if (ProjectModalNameInput.value !== '' && initalizedProjects.includes(ProjectModalNameInput.value) == false) {
                 createProject(ProjectModalNameInput.value)
                 content.setAttribute('class', 'closed')
                 content.removeChild(ProjectModalContainer)
             } else {
-                alert ('Project name cannot be empty')
+                alert ('Project name cannot be empty or project name is already taken')
             }
         })
 

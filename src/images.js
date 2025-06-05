@@ -6,11 +6,6 @@ const catProfile = document.createElement('img')
 catProfile.setAttribute('class', 'cat-profile')
 catProfile.src = catIcon;
 
-function createProfile(image) {
-
-}
-
-
 profileIcon.appendChild(catProfile)
 
 import deleteImg from './resources/delete-icon.png'

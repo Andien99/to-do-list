@@ -3,16 +3,14 @@ import { projectContainer } from "./createProject"
 import { createIcon } from "./createIcons"
 import { createInput } from "./createInput"
 import { calendar } from "./calendar"
-
+import { storeTask } from "./storeData"
 function createTask(title_, date_ ,info_, urgency_) {
-    console.log('Date: ' + date_)
-    console.log('Title: ' + title_)
-    console.log('Info: ' + info_)
-    console.log('Urgency: ' + urgency_)
+    
     const taskContainer = document.createElement('div')
         taskContainer.classList.add('task-container')
         projectContainer.appendChild(taskContainer)
-        
+        console.log('Parent Node: ' + taskContainer.parentNode.id)
+        let parentProject = taskContainer.parentNode.id    
     //Inputing the content into the new task
     const taskHeader = document.createElement('div')
         taskHeader.classList.add('task-header')
@@ -23,7 +21,6 @@ function createTask(title_, date_ ,info_, urgency_) {
         taskHeader.appendChild(taskHeaderLeft)
 
         const calendarDate = document.createElement('p')
-        calendarDate.setAttribute('id', crypto.randomUUID())
         calendarDate.textContent = date_
 
         const editDueDate = document.createElement('button')
@@ -92,9 +89,12 @@ function createTask(title_, date_ ,info_, urgency_) {
         editDueDate.classList.add('not-started')
         taskInfo.classList.add('not-started')
         taskTitle.classList.add('not-started')
-    }
+    } else if (urgency_ == '') {
+    taskContainer.style.backgroundColor = '#c4c4c4'
+}
 
 
+    storeTask(title_, date_ ,info_, urgency_, parentProject)
 }
 
 export {createTask}
