@@ -1,16 +1,23 @@
 import { calendarTextInput } from "./createModal"
-import { projectContainer } from "./createProject"
+import { projectArr } from "./createProject"
 import { createIcon } from "./createIcons"
 import { createInput } from "./createInput"
 import { calendar } from "./calendar"
-import { storeTask } from "./storeData"
-function createTask(title_, date_ ,info_, urgency_) {
-    
+import { storeTask, updateTaskTitle } from "./storeData"
+function createTask(title_, date_ ,info_, urgency_, projectParent) {
+    let currentTitle = title_;
+    let currentInfo = info_;
     const taskContainer = document.createElement('div')
         taskContainer.classList.add('task-container')
-        projectContainer.appendChild(taskContainer)
-        console.log('Parent Node: ' + taskContainer.parentNode.id)
-        let parentProject = taskContainer.parentNode.id    
+        let parentProject
+        for (let i = 0; i < projectArr.length; i++) {
+            console.log(projectArr[i].title + ' vs ' + projectParent)
+            if (projectArr[i].title == projectParent) {
+                projectArr[i].src.appendChild(taskContainer)
+                parentProject = taskContainer.parentNode.id 
+            }
+        }
+        console.log(parentProject)
     //Inputing the content into the new task
     const taskHeader = document.createElement('div')
         taskHeader.classList.add('task-header')
@@ -54,6 +61,11 @@ function createTask(title_, date_ ,info_, urgency_) {
         const taskTitle = document.createElement('input')
         createInput(taskTitle, 'text', 'task-title', '', 'Please label task')
         taskTitle.value = title_;
+        
+        taskTitle.addEventListener('change', () => {
+            let updatedTitle = taskTitle.value
+            updateTaskTitle(currentTitle, updatedTitle, parentProject)
+        })
         taskTitle.style.fontWeight = 'bold'
         taskContent.appendChild(taskTitle)
 

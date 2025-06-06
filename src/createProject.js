@@ -1,16 +1,19 @@
 import { newTaskModal } from "./createModal"
 import { storeProject } from "./storeData"
 const content = document.getElementById('content')
-let projectContainer
+const projectArr = []
 
 function createProject (title_) {
-    console.log('Create project ran')
-    projectContainer = document.createElement('div')
-
+    const projectContainer = document.createElement('div')
     let projectTitle = document.createElement('h1')
     createProjectContainer(title_)
     addToDoListBtn()
-
+    let thisProject = {
+        title: title_,
+        src: projectContainer,
+    }
+    projectArr.push(thisProject)
+    console.log(projectArr)
     function createProjectContainer(title) {
         projectContainer.classList.add('project-container')
         projectContainer.setAttribute('id', title)
@@ -26,8 +29,7 @@ function createProject (title_) {
         addContentBtn.textContent = '+'
         projectContainer.appendChild(addContentBtn)
         addContentBtn.addEventListener('click', () => {
-            // newTaskModal()
-            console.log(addContentBtn.parentNode.id)
+            newTaskModal(title_)
         })
             
     }
@@ -35,4 +37,4 @@ function createProject (title_) {
     storeProject(title_)
 }
 
-export {createProject, projectContainer}
+export {createProject, projectArr}

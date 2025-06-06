@@ -8,7 +8,7 @@ import { initalizedProjects } from "./storeData"
 const content = document.getElementById(('content'))
 let calendarTextInput
 let calendarModalBtn
-function newTaskModal() {
+function newTaskModal(projectParent) {
     const taskContainer = document.createElement('div')
     taskContainer.classList.add('task-modal-container')
     content.appendChild(taskContainer)
@@ -99,7 +99,7 @@ function newTaskModal() {
 
         taskSubmit.addEventListener('click', () => {
             if (taskNameInput.value !== '' && initalizedProjects.includes(taskNameInput.value) == false) {
-                createTask(taskNameInput.value, calendarTextInput.value, taskInfoInput.value, urgency)
+                createTask(taskNameInput.value, calendarTextInput.value, taskInfoInput.value, urgency, projectParent)
                 content.removeChild(taskContainer)
             } else {
                 alert ('Task name cannot be empty')
