@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>To Do List</title>
+    <link rel="stylesheet" href="609a232ab53e413e38d2.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0&" />
+<script defer src="main.js"></script></head>
+<body>
+    <button id="add-project">+</button>
+    <div class="page-container">
+        <header id="header">
+            <div class="leftside">
+                <button id="add-new">Add new</button>
+                <button class="table-view">Table View</button>
+                <button class="message-board-view">Message Board</button>
+                <button class="sort">Sort by</button>
+            </div>
+
+            <div class="rightside">
+                <div class="search">
+                    <input type="text" name="search" id="search" placeholder= "search...">
+                </div>
+                <span class="material-symbols-outlined">notifications</span>
+                <div id="profile-icon-header"></div>
+            </div>
+
+        </header>
+        <div id="content" class="closed">
+            
+        </div>
+        <div id="nav">
+            <div class="nav-heading">
+                <div class="profile" id="profile-nav"></div>
+                <h3>My Workspace</h3>
+            </div>
+            <div class="task-content">
+                <div class="tasks">
+                    <span class="material-symbols-outlined">Star</span>
+                    <div>Today's Tasks</div>
+                </div>
+                <div class="tasks">
+                    <span class="material-symbols-outlined">calendar_month</span>
+                    <div>Upcoming</div>
+                </div>
+                <div class="tasks">
+                    <span class="material-symbols-outlined">Warning</span>
+                    <div>Urgent</div>
+                </div>
+                <div class="tasks">
+                    <span class="material-symbols-outlined">Monitoring</span>
+                    <div>Analytics</div>
+                </div>
+                <div class="tasks">
+                    <span class="material-symbols-outlined">Settings</span>
+                    <div>Settings</div>
+                </div>
+                <div class="tasks">
+                    <span class="material-symbols-outlined">account_circle</span>
+                    <div>Contact Us</div>
+                </div>
+            </div>
+            
+        </div>
+    </div>
+</body>
+</html>
