@@ -13,7 +13,6 @@ function createProject (title_) {
         src: projectContainer,
     }
     projectArr.push(thisProject)
-    console.log(projectArr)
     function createProjectContainer(title) {
         projectContainer.classList.add('project-container')
         projectContainer.setAttribute('id', title)
